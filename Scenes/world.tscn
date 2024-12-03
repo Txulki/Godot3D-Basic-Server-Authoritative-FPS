@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxaw7wxu3oklm"]
+
+[ext_resource type="PackedScene" uid="uid://brb0bilvb0aci" path="res://Assets/MedievalAssetPack/used/TableRound/TableRound.fbx" id="1_lki1w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb564"]
+size = Vector3(20, 0.01, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bycxu"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbwws"]
+albedo_color = Color(0.498039, 0.407843, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_debs1"]
+size = Vector3(4.195, 3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xt4cw"]
+data = PackedVector3Array(-2.0975, 1.5, 0.5, 2.0975, 1.5, 0.5, -2.0975, -1.5, 0.5, 2.0975, 1.5, 0.5, 2.0975, -1.5, 0.5, -2.0975, -1.5, 0.5, 2.0975, 1.5, -0.5, -2.0975, 1.5, -0.5, 2.0975, -1.5, -0.5, -2.0975, 1.5, -0.5, -2.0975, -1.5, -0.5, 2.0975, -1.5, -0.5, 2.0975, 1.5, 0.5, 2.0975, 1.5, -0.5, 2.0975, -1.5, 0.5, 2.0975, 1.5, -0.5, 2.0975, -1.5, -0.5, 2.0975, -1.5, 0.5, -2.0975, 1.5, -0.5, -2.0975, 1.5, 0.5, -2.0975, -1.5, -0.5, -2.0975, 1.5, 0.5, -2.0975, -1.5, 0.5, -2.0975, -1.5, -0.5, 2.0975, 1.5, 0.5, -2.0975, 1.5, 0.5, 2.0975, 1.5, -0.5, -2.0975, 1.5, 0.5, -2.0975, 1.5, -0.5, 2.0975, 1.5, -0.5, -2.0975, -1.5, 0.5, 2.0975, -1.5, 0.5, -2.0975, -1.5, -0.5, 2.0975, -1.5, 0.5, 2.0975, -1.5, -0.5, -2.0975, -1.5, -0.5)
+
+[node name="World" type="Node3D"]
+
+[node name="FloorCouncilRoom" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCouncilRoom"]
+shape = SubResource("BoxShape3D_sb564")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorCouncilRoom"]
+mesh = SubResource("PlaneMesh_bycxu")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jbwws")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.994151, 0.107075, 0.0140968, 2.2822e-08, -0.130526, 0.991445, 0.107999, 0.985646, 0.129763, 5, 11.599, 5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0540788, 0.998537, 0, -0.998537, 0.0540788, 0, 11.937, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48329, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.971135, -8.92514)
+mesh = SubResource("BoxMesh_debs1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.971135, -8.92514)
+shape = SubResource("ConcavePolygonShape3D_xt4cw")
+
+[node name="TableRound" parent="." instance=ExtResource("1_lki1w")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 7.05654)
+
+[node name="FloorHallway" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorHallway"]
+shape = SubResource("BoxShape3D_sb564")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorHallway"]
+mesh = SubResource("PlaneMesh_bycxu")
+skeleton = NodePath("../../FloorCouncilRoom")
+surface_material_override/0 = SubResource("StandardMaterial3D_jbwws")

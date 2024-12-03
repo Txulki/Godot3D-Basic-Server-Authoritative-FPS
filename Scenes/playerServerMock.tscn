@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://57erxx637py"]
+
+[ext_resource type="Script" path="res://Scenes/MockServerController.cs" id="1_hvwm4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jxrgn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxrgy"]
+albedo_color = Color(1, 0.72549, 0.141176, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2urca"]
+material = SubResource("StandardMaterial3D_lxrgy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6m5i"]
+size = Vector3(0.7, 0.2, 0.3)
+
+[node name="PlayerMock" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_hvwm4")
+
+[node name="Hand" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.26, -0.65)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_jxrgn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_2urca")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.446905, -0.358129)
+mesh = SubResource("BoxMesh_f6m5i")

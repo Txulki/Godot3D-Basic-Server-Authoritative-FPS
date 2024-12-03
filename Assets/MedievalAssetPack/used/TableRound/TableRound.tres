@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bb6vwgp14ug2m"]
+
+[ext_resource type="Texture2D" uid="uid://befnte4cepnre" path="res://Assets/MedievalAssetPack/soiTavern_fbx/Tables/trn_TableRound_AlbedoTransparency.png" id="1_ysufy"]
+[ext_resource type="Texture2D" uid="uid://banwglxvfne0h" path="res://Assets/MedievalAssetPack/soiTavern_fbx/Tables/trn_TableRound_MetallicSmoothness.png" id="2_yi2k3"]
+[ext_resource type="Texture2D" uid="uid://bnhjnc00qnao2" path="res://Assets/MedievalAssetPack/soiTavern_fbx/Tables/trn_TableRound_Normal.png" id="3_epgtw"]
+
+[resource]
+albedo_texture = ExtResource("1_ysufy")
+metallic = 1.0
+metallic_texture = ExtResource("2_yi2k3")
+normal_enabled = true
+normal_texture = ExtResource("3_epgtw")

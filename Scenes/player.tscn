@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cavuh4lryg2bf"]
+
+[ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_vmb4k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k148e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpqy3"]
+albedo_color = Color(0.870367, 0.000173969, 9.52026e-05, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3il53"]
+material = SubResource("StandardMaterial3D_xpqy3")
+
+[node name="player" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_vmb4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_k148e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_3il53")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534868, -0.23603)
+fov = 80.0
+
+[node name="Hand" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.26, -0.65)
