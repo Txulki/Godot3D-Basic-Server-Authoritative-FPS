@@ -2,3 +2,5 @@ I created this following mostly Gabriel Gambetta's networking explanations and g
 This really just handles WASD, simple camera one axis rotating sync and raycasting.
 The raycasting can probably detect different types of objects if modified a little, so it can manage interactions with any world object. 
 Movement seems to work pretty well, but I guess animations and jumping need to be implemented. It is just more of the same though.
+
+![Uploading Godot_v4.3-stable_mono_win64_h67eMDkrDq.gif…]()
